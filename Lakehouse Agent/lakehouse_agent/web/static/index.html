@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakehouse Agent: Adaptive Financial Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Top Navbar -->
+  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <i data-lucide="brain-circuit" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">
+            Lakehouse Intelligence Agent
+          </h1>
+          <p class="text-xs text-slate-400">Adaptive Financial Recommendation & Multi-Agent RAG</p>
+        </div>
+      </div>
+
+      <!-- System Status Badges -->
+      <div class="hidden md:flex items-center space-x-3 text-xs">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/50">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 mr-1.5 animate-pulse"></span>
+          DuckDB Medallion Lakehouse
+        </span>
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-950/80 text-purple-300 border border-purple-800/50">
+          <i data-lucide="database" class="w-3 h-3 mr-1"></i>
+          Hybrid Vector RAG
+        </span>
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800/50">
+          <i data-lucide="shield-check" class="w-3 h-3 mr-1"></i>
+          Reg BI Guardrails
+        </span>
+        <button id="btn-refresh-pipeline" onclick="refreshLakehousePipeline()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center space-x-1.5 transition">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+          <span>Refresh Data</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="border-b border-slate-800 bg-slate-900/50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex space-x-6 text-sm">
+      <button onclick="switchTab('advisory')" id="tab-advisory" class="py-3 px-1 border-b-2 border-cyan-400 text-cyan-400 font-medium flex items-center space-x-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>Multi-Agent Advisory Hub</span>
+      </button>
+      <button onclick="switchTab('lakehouse')" id="tab-lakehouse" class="py-3 px-1 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-medium flex items-center space-x-2">
+        <i data-lucide="layers" class="w-4 h-4"></i>
+        <span>Lakehouse Medallion Explorer</span>
+      </button>
+      <button onclick="switchTab('scenarios')" id="tab-scenarios" class="py-3 px-1 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-medium flex items-center space-x-2">
+        <i data-lucide="activity" class="w-4 h-4"></i>
+        <span>Stress Testing & Scenarios</span>
+      </button>
+      <button onclick="switchTab('architecture')" id="tab-architecture" class="py-3 px-1 border-b-2 border-transparent text-slate-400 hover:text-slate-200 font-medium flex items-center space-x-2">
+        <i data-lucide="cpu" class="w-4 h-4"></i>
+        <span>System Architecture & Specs</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+
+    <!-- ==================== TAB 1: ADVISORY HUB ==================== -->
+    <section id="panel-advisory" class="space-y-6">
+      
+      <!-- Top Client Selection Bar -->
+      <div class="glass-panel p-5 grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Select Investor Profile</label>
+          <select id="select-investor" onchange="onInvestorChange()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+            <option value="INV001">Sarah Jenkins (Tech Eng, Aggressive, 30y)</option>
+            <option value="INV002">Robert Chang (Retiree, Conservative, 5y)</option>
+            <option value="INV003">Elena Rostova (Physician, Moderate, 12y)</option>
+            <option value="INV004">Marcus Vance (Entrepreneur, Mod-Aggressive, 18y)</option>
+          </select>
+        </div>
+
+        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+          <span class="text-xs text-slate-400 block">Liquid Net Worth</span>
+          <span id="badge-networth" class="text-lg font-bold text-slate-100">$145,000</span>
+        </div>
+
+        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+          <span class="text-xs text-slate-400 block">Stated Risk & Goal</span>
+          <span id="badge-risk-goal" class="text-xs font-semibold text-cyan-400 truncate block">Aggressive | Tech Growth</span>
+        </div>
+
+        <div>
+          <button id="btn-run-agents" onclick="runAgenticPipeline()" class="w-full py-2.5 px-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 font-semibold text-white shadow-lg shadow-cyan-500/25 flex items-center justify-center space-x-2 transition">
+            <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+            <span>Run Multi-Agent Pipeline</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Current Portfolio Diagnostic Snapshot -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="glass-panel p-4">
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <span>Portfolio Beta</span>
+            <i data-lucide="trending-up" class="w-4 h-4 text-cyan-400"></i>
+          </div>
+          <div class="mt-2 flex items-baseline justify-between">
+            <span id="curr-beta" class="text-2xl font-bold text-slate-100">1.28</span>
+            <span class="text-xs text-slate-400">Benchmark: 1.00</span>
+          </div>
+        </div>
+
+        <div class="glass-panel p-4">
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <span>Dividend Yield</span>
+            <i data-lucide="percent" class="w-4 h-4 text-emerald-400"></i>
+          </div>
+          <div class="mt-2 flex items-baseline justify-between">
+            <span id="curr-yield" class="text-2xl font-bold text-emerald-400">1.12%</span>
+            <span class="text-xs text-slate-400">Annualized</span>
+          </div>
+        </div>
+
+        <div class="glass-panel p-4">
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <span>Diversification Score</span>
+            <i data-lucide="pie-chart" class="w-4 h-4 text-purple-400"></i>
+          </div>
+          <div class="mt-2 flex items-baseline justify-between">
+            <span id="curr-div" class="text-2xl font-bold text-purple-400">64.5/100</span>
+            <span class="text-xs text-slate-400">HHI Metric</span>
+          </div>
+        </div>
+
+        <div class="glass-panel p-4">
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <span>Risk Drift Assessment</span>
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
+          </div>
+          <div class="mt-2">
+            <span id="curr-drift" class="text-xs font-semibold px-2 py-1 rounded bg-amber-950/60 text-amber-300 border border-amber-800">
+              Concentration Risk Detected
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendation Results (Initially hidden or populated) -->
+      <div id="results-container" class="space-y-6">
+
+        <!-- Executive Advisory Briefing & Badges -->
+        <div class="glass-panel p-6 border-l-4 border-cyan-400">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4 mb-4">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-cyan-900/60 text-cyan-300 border border-cyan-700">
+                  Adaptive Recommendation Report
+                </span>
+                <span id="rec-id-badge" class="text-xs text-slate-400">ID: REC_PENDING</span>
+              </div>
+              <h2 id="rec-title" class="text-xl font-bold text-slate-100 mt-1">
+                Strategic Portfolio Optimization & Risk Realignment Plan
+              </h2>
+            </div>
+            <div id="compliance-status-badge" class="px-3 py-1.5 rounded-lg text-xs font-bold badge-approved flex items-center space-x-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>FINRA & Reg BI Fiduciary Approved</span>
+            </div>
+          </div>
+
+          <!-- Synthesis Prose -->
+          <div id="executive-summary-text" class="text-sm text-slate-300 leading-relaxed whitespace-pre-line space-y-2">
+            Click "Run Multi-Agent Pipeline" above to execute the collaborative reasoning chain across Lakehouse tables, vector-retrieved SEC filings, and mathematical portfolio optimization.
+          </div>
+        </div>
+
+        <!-- Asset Allocation Comparison Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="glass-panel p-5">
+            <h3 class="text-sm font-semibold text-slate-300 mb-3 flex items-center">
+              <i data-lucide="pie-chart" class="w-4 h-4 mr-2 text-cyan-400"></i>
+              Current Asset Allocation
+            </h3>
+            <div class="h-64 flex items-center justify-center">
+              <canvas id="chart-current-allocation"></canvas>
+            </div>
+          </div>
+
+          <div class="glass-panel p-5">
+            <h3 class="text-sm font-semibold text-slate-300 mb-3 flex items-center">
+              <i data-lucide="target" class="w-4 h-4 mr-2 text-emerald-400"></i>
+              Optimized Target Allocation (MPT & Reg BI Compliant)
+            </h3>
+            <div class="h-64 flex items-center justify-center">
+              <canvas id="chart-target-allocation"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concrete Rebalancing Trade Orders Table -->
+        <div class="glass-panel p-5">
+          <h3 class="text-sm font-semibold text-slate-300 mb-4 flex items-center">
+            <i data-lucide="arrow-left-right" class="w-4 h-4 mr-2 text-blue-400"></i>
+            Actionable Rebalancing Trade Orders
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+                <tr>
+                  <th class="py-3 px-4">Action</th>
+                  <th class="py-3 px-4">Asset</th>
+                  <th class="py-3 px-4">Asset Class</th>
+                  <th class="py-3 px-4">Shares</th>
+                  <th class="py-3 px-4">Price</th>
+                  <th class="py-3 px-4">Estimated Value</th>
+                  <th class="py-3 px-4">Strategic Rationale</th>
+                </tr>
+              </thead>
+              <tbody id="orders-tbody" class="divide-y divide-slate-800 text-slate-300">
+                <tr>
+                  <td colspan="7" class="py-4 text-center text-slate-500">No active orders generated yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Multi-Agent Cognitive Trace Cards -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold text-slate-300 tracking-wide uppercase flex items-center">
+            <i data-lucide="git-merge" class="w-4 h-4 mr-2 text-purple-400"></i>
+            Multi-Agent Step-by-Step Reasoning & Explainability Traces
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <!-- Agent 1: Profiler -->
+            <div class="glass-panel p-4 agent-card agent-profiler">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-cyan-400 flex items-center">
+                  <i data-lucide="user-check" class="w-3.5 h-3.5 mr-1.5"></i> Profiler Agent
+                </span>
+                <span class="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">Silver Mart</span>
+              </div>
+              <p id="trace-profiler-summary" class="text-xs text-slate-300 line-clamp-4">
+                Awaiting agent execution...
+              </p>
+            </div>
+
+            <!-- Agent 2: Lakehouse Analyst -->
+            <div class="glass-panel p-4 agent-card agent-analyst">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-blue-400 flex items-center">
+                  <i data-lucide="table" class="w-3.5 h-3.5 mr-1.5"></i> Lakehouse Analyst
+                </span>
+                <span class="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">DuckDB OLAP</span>
+              </div>
+              <p id="trace-analyst-summary" class="text-xs text-slate-300 line-clamp-4">
+                Awaiting agent execution...
+              </p>
+            </div>
+
+            <!-- Agent 3: Market RAG Intelligence -->
+            <div class="glass-panel p-4 agent-card agent-market">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-purple-400 flex items-center">
+                  <i data-lucide="file-search" class="w-3.5 h-3.5 mr-1.5"></i> Market RAG Agent
+                </span>
+                <span class="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">SEC & Fed Docs</span>
+              </div>
+              <p id="trace-market-summary" class="text-xs text-slate-300 line-clamp-4">
+                Awaiting agent execution...
+              </p>
+            </div>
+
+            <!-- Agent 4: Portfolio Optimizer -->
+            <div class="glass-panel p-4 agent-card agent-optimizer">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-emerald-400 flex items-center">
+                  <i data-lucide="sliders" class="w-3.5 h-3.5 mr-1.5"></i> Optimizer Agent
+                </span>
+                <span class="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">MPT Engine</span>
+              </div>
+              <p id="trace-optimizer-summary" class="text-xs text-slate-300 line-clamp-4">
+                Awaiting agent execution...
+              </p>
+            </div>
+
+            <!-- Agent 5: Compliance Gatekeeper -->
+            <div class="glass-panel p-4 agent-card agent-compliance md:col-span-2">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-amber-400 flex items-center">
+                  <i data-lucide="shield-alert" class="w-3.5 h-3.5 mr-1.5"></i> Compliance Guardrail Agent
+                </span>
+                <span class="text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">FINRA 2111 / Reg BI</span>
+              </div>
+              <p id="trace-compliance-summary" class="text-xs text-slate-300 line-clamp-4">
+                Awaiting agent execution...
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Retrieved Documents & RAG Grounding Citations -->
+        <div class="glass-panel p-5">
+          <h3 class="text-sm font-semibold text-slate-300 mb-3 flex items-center">
+            <i data-lucide="book-open" class="w-4 h-4 mr-2 text-indigo-400"></i>
+            Retrieved Empirical RAG Evidence & Citations
+          </h3>
+          <div id="citations-list" class="space-y-2">
+            <div class="text-xs text-slate-500 italic">No citations retrieved yet.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 2: LAKEHOUSE EXPLORER ==================== -->
+    <section id="panel-lakehouse" class="hidden space-y-6">
+      <div class="glass-panel p-5">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-100 flex items-center">
+              <i data-lucide="database" class="w-5 h-5 mr-2 text-cyan-400"></i>
+              DuckDB Medallion Lakehouse Browser
+            </h2>
+            <p class="text-xs text-slate-400">Direct ACID OLAP querying over Bronze, Silver, and Gold Parquet layers</p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button onclick="loadTablePreset('SELECT * FROM gold_portfolio_analytics;')" class="text-xs px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700">
+              Gold Analytics
+            </button>
+            <button onclick="loadTablePreset('SELECT * FROM silver_portfolio_holdings;')" class="text-xs px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-blue-300 border border-slate-700">
+              Silver Holdings
+            </button>
+            <button onclick="loadTablePreset('SELECT * FROM gold_investment_universe LIMIT 10;')" class="text-xs px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700">
+              Investment Universe
+            </button>
+            <button onclick="loadTablePreset('SELECT * FROM bronze_macro_indicators;')" class="text-xs px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-300 border border-slate-700">
+              Bronze Macro
+            </button>
+          </div>
+        </div>
+
+        <!-- SQL Console Input -->
+        <div class="space-y-3">
+          <div class="flex gap-2">
+            <textarea id="sql-query-input" rows="3" class="w-full bg-slate-900 font-mono text-xs text-cyan-300 p-3 rounded-lg border border-slate-700 focus:outline-none focus:border-cyan-500">SELECT * FROM gold_portfolio_analytics;</textarea>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-[11px] text-slate-500">Querying DuckDB embedded engine with ZSTD-compressed Parquet views</span>
+            <button onclick="executeCustomSQL()" class="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs flex items-center space-x-1.5 transition">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i>
+              <span>Execute SQL Query</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SQL Results Grid -->
+      <div class="glass-panel p-5">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold text-slate-300" id="query-results-count">Results (0 rows)</span>
+        </div>
+        <div class="overflow-x-auto max-h-96">
+          <table id="sql-results-table" class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-900 sticky top-0 text-slate-400 border-b border-slate-800" id="sql-thead">
+              <tr><th class="p-3">Run a query to inspect Lakehouse tables</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-slate-300" id="sql-tbody">
+              <tr><td class="p-3 text-slate-500">No query executed yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: STRESS TESTING ==================== -->
+    <section id="panel-scenarios" class="hidden space-y-6">
+      <div class="glass-panel p-5">
+        <h2 class="text-base font-bold text-slate-100 flex items-center mb-1">
+          <i data-lucide="activity" class="w-5 h-5 mr-2 text-rose-400"></i>
+          Adaptive Macroeconomic Scenario Stress Simulator
+        </h2>
+        <p class="text-xs text-slate-400 mb-4">Simulate how the unhedged current portfolio compares against the agent's optimized target allocation under acute market shocks</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer" onclick="runScenarioSimulation('tech_correction')">
+            <div class="flex items-center justify-between text-rose-400 font-semibold text-xs mb-1">
+              <span>Scenario 1: Tech Bubble Reset</span>
+              <i data-lucide="trending-down" class="w-4 h-4"></i>
+            </div>
+            <p class="text-[11px] text-slate-400">-25% Tech valuation multiple contraction; high-beta equities drop sharply.</p>
+            <button class="mt-3 w-full py-1.5 rounded bg-slate-800 text-xs font-semibold text-slate-200 hover:bg-slate-700">Simulate Shock</button>
+          </div>
+
+          <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer" onclick="runScenarioSimulation('rate_hike')">
+            <div class="flex items-center justify-between text-amber-400 font-semibold text-xs mb-1">
+              <span>Scenario 2: Fed +100bps Hike</span>
+              <i data-lucide="zap" class="w-4 h-4"></i>
+            </div>
+            <p class="text-[11px] text-slate-400">Discount rate spike; compresses long-duration equities and unhedged long treasuries.</p>
+            <button class="mt-3 w-full py-1.5 rounded bg-slate-800 text-xs font-semibold text-slate-200 hover:bg-slate-700">Simulate Shock</button>
+          </div>
+
+          <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer" onclick="runScenarioSimulation('stagflation')">
+            <div class="flex items-center justify-between text-purple-400 font-semibold text-xs mb-1">
+              <span>Scenario 3: Stagflation Shock</span>
+              <i data-lucide="flame" class="w-4 h-4"></i>
+            </div>
+            <p class="text-[11px] text-slate-400">CPI prints accelerate while GDP slows; conventional 60/40 suffers, Gold outperforms.</p>
+            <button class="mt-3 w-full py-1.5 rounded bg-slate-800 text-xs font-semibold text-slate-200 hover:bg-slate-700">Simulate Shock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stress Test Results Card -->
+      <div id="stress-results-card" class="hidden glass-panel p-6 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div>
+            <h3 id="stress-scenario-name" class="text-base font-bold text-slate-100">Scenario Simulation</h3>
+            <p id="stress-scenario-desc" class="text-xs text-slate-400">Simulation Description</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xs text-slate-400 block">Capital Preservation Alpha</span>
+            <span id="stress-alpha-val" class="text-xl font-bold text-emerald-400">+6.45%</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-slate-900/80 p-5 rounded-lg border border-rose-900/40">
+            <span class="text-xs text-slate-400 block uppercase font-bold tracking-wider mb-1">Current Unhedged Portfolio</span>
+            <div class="flex items-baseline space-x-2">
+              <span id="stress-curr-val" class="text-2xl font-bold text-slate-100">$120,400</span>
+              <span id="stress-curr-drawdown" class="text-sm font-semibold text-rose-400">-18.4%</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-2">Severe downside due to tech and single-ticker concentration.</p>
+          </div>
+
+          <div class="bg-slate-900/80 p-5 rounded-lg border border-emerald-900/40">
+            <span class="text-xs text-slate-400 block uppercase font-bold tracking-wider mb-1">Agent Optimized Rebalanced Portfolio</span>
+            <div class="flex items-baseline space-x-2">
+              <span id="stress-target-val" class="text-2xl font-bold text-slate-100">$138,500</span>
+              <span id="stress-target-drawdown" class="text-sm font-semibold text-emerald-400">-6.8%</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-2">Cushioned by diversified short treasuries, international equities, and real assets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: ARCHITECTURE & SPECS ==================== -->
+    <section id="panel-architecture" class="hidden space-y-6">
+      <div class="glass-panel p-6 space-y-6">
+        <div>
+          <h2 class="text-lg font-bold text-slate-100">System Architecture & Research Specification</h2>
+          <p class="text-xs text-slate-400 mt-1">A Lakehouse-Enabled Agentic Intelligence System for Adaptive Personalized Financial Recommendation using Retrieval-Augmented LLMs</p>
+        </div>
+
+        <!-- Architecture Flow -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 space-y-2">
+            <h4 class="font-bold text-cyan-400 flex items-center">
+              <i data-lucide="layers" class="w-4 h-4 mr-1.5"></i> 1. Lakehouse Medallion Layer
+            </h4>
+            <p class="text-slate-300"><strong>Bronze:</strong> Raw tick feeds, investor profiles, historical trades, SEC 10-K filings.</p>
+            <p class="text-slate-300"><strong>Silver:</strong> Conformed metrics, DTI, emergency runway, beta calculations, concentration flags.</p>
+            <p class="text-slate-300"><strong>Gold:</strong> Portfolio risk feature store, candidate universe ranking, recommendation audit history.</p>
+          </div>
+
+          <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 space-y-2">
+            <h4 class="font-bold text-purple-400 flex items-center">
+              <i data-lucide="git-branch" class="w-4 h-4 mr-1.5"></i> 2. Multi-Agent Cognitive Framework
+            </h4>
+            <p class="text-slate-300"><strong>User Profiler:</strong> True risk capacity vs stated psychological tolerance.</p>
+            <p class="text-slate-300"><strong>Lakehouse Analyst:</strong> Direct DuckDB OLAP queries, HHI concentration metrics.</p>
+            <p class="text-slate-300"><strong>Market RAG:</strong> Semantic vector search over SEC filings & Fed statements.</p>
+            <p class="text-slate-300"><strong>Portfolio Optimizer:</strong> MPT Mean-Variance and exact rebalancing trades.</p>
+            <p class="text-slate-300"><strong>Compliance Guardrail:</strong> FINRA Rule 2111 / SEC Reg BI suitability gatekeeper.</p>
+          </div>
+
+          <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 space-y-2">
+            <h4 class="font-bold text-emerald-400 flex items-center">
+              <i data-lucide="check-circle" class="w-4 h-4 mr-1.5"></i> 3. Adaptive Personalization & RAG
+            </h4>
+            <p class="text-slate-300"><strong>Adaptive Feedback:</strong> Real-time trigger adaptation when client goals or macro regimes shift.</p>
+            <p class="text-slate-300"><strong>Grounded RAG:</strong> Every piece of advice links directly to cited empirical disclosures.</p>
+            <p class="text-slate-300"><strong>Deterministic Fallbacks:</strong> 100% operational offline without external API blockers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 py-4 text-center text-xs text-slate-500">
+    Lakehouse-Enabled Agentic Intelligence System &copy; 2026. Built with DuckDB, FastAPI, Chart.js & Multi-Agent RAG.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

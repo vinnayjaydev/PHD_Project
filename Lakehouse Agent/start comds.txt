@@ -1,0 +1,16 @@
+Quick Commands
+1. Start the Interactive Web Application
+powershell
+python run_server.py
+
+Open your browser to: http://127.0.0.1:8000
+
+2. Run CLI Recommendation for an Investor Profile
+powershell
+python -m lakehouse_agent.cli --investor INV001
+3. Execute Custom DuckDB SQL Queries
+powershell
+python -m lakehouse_agent.cli --query "SELECT investor_id, name, risk_tier, portfolio_beta, diversification_score FROM gold_portfolio_analytics;"
+4. Run Test Suite
+powershell
+python -m unittest discover -s lakehouse_agent/tests -v
