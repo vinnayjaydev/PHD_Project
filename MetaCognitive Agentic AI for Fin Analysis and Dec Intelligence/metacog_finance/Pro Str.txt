@@ -1,0 +1,43 @@
+MetaCognitive Agentic AI for Fin Analysis and Dec Intelligence/
+├── README.md                              # Main guide and instructions
+├── pyproject.toml                         # Project package specification
+├── metacog_finance/                       # Production Python package
+│   ├── core/
+│   │   ├── models.py                      # Strongly typed Pydantic v2 schemas
+│   │   ├── config.py                      # Hyperparameters and SEC configuration
+│   │   └── telemetry.py                   # Introspection event tracer
+│   ├── rag/
+│   │   ├── sec_edgar.py                   # SEC EDGAR client with curated filings (AAPL, TSLA, STRESS)
+│   │   ├── tabular_parser.py              # Line-based table extraction and accounting format parsing
+│   │   ├── chunker.py                     # Regulatory SEC Item section chunker
+│   │   └── hybrid_retriever.py            # BM25 + dense semantic similarity with temporal filters
+│   ├── metacognition/
+│   │   ├── financial_metrics.py           # Altman Z, Beneish M, and ROIC engines
+│   │   ├── verifier.py                    # Deterministic accounting invariant verifier
+│   │   ├── monitor.py                     # Epistemic discrepancy detector
+│   │   ├── calibrator.py                  # Formal confidence calibrator
+│   │   └── reflection_loop.py             # Adaptive reflection controller
+│   ├── agents/
+│   │   ├── base.py                        # Multi-LLM provider (Gemini, OpenAI, deterministic fallback)
+│   │   ├── data_agent.py                  # Quantitative extraction & ratio compilation
+│   │   ├── fundamental_agent.py           # Qualitative MD&A and moat evaluation
+│   │   ├── forensic_agent.py              # Adversarial forensic accountant
+│   │   └── decision_agent.py              # Decision intelligence synthesizer
+│   ├── orchestration/
+│   │   ├── state.py                       # Mutable pipeline state
+│   │   └── engine.py                      # Meta-cognitive dual-loop orchestrator
+│   ├── ui/
+│   │   └── app.py                         # Interactive Gradio 6 web dashboard
+│   └── cli.py                             # Rich terminal interface
+├── research/
+│   ├── paper.md                           # Publication-grade academic research paper
+│   ├── system_architecture.md             # Formal architectural blueprint & diagrams
+│   └── benchmarks_and_results.md          # Empirical evaluation vs Naive RAG & Multi-Agent
+└── tests/                                 # 20/20 Passing Pytest Test Suite
+    ├── test_models.py
+    ├── test_financial_metrics.py
+    ├── test_verifier.py
+    ├── test_tabular_parser.py
+    ├── test_retriever.py
+    ├── test_metacognition.py
+    └── test_end_to_end_pipeline.py

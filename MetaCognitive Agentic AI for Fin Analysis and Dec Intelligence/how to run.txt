@@ -1,0 +1,32 @@
+Quickstart & Verification
+1. Run the Test Suite
+
+The full suite of 20 unit and integration tests runs in under 0.5s:
+
+bash
+pytest -v
+
+(All 20 tests currently pass).
+
+2. Run via Rich Terminal CLI
+
+Evaluate target entities with real-time introspection and formatted audit tables:
+
+bash
+# Evaluate Apple Inc. (FY2023)
+python -m metacog_finance.cli --ticker AAPL
+# Evaluate Tesla Inc. (FY2023)
+python -m metacog_finance.cli --ticker TSLA
+# Stress-test against high-discrepancy corporate distress
+python -m metacog_finance.cli --ticker STRESS
+3. Launch the Gradio Web Dashboard
+
+Start the local interactive web interface at http://127.0.0.1:7860:
+
+bash
+python -m metacog_finance.ui.app
+4. Read the Full Research Paper
+
+The complete paper is documented in research/paper.md.
+
+All files are version-controlled, tested, and ready for further exploration or institutional deployment.

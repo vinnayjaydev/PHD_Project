@@ -1,0 +1,72 @@
+[
+  {
+    "chunk_id": "TSLA_2023_10-K_chunk_1",
+    "ticker": "TSLA",
+    "doc_type": "10-K",
+    "fiscal_year": 2023,
+    "fiscal_period": "FY",
+    "section": "Item 1. Business",
+    "content": "Tesla, Inc. designs, develops, manufactures, sells, and leases high-performance fully electric vehicles, energy generation and storage systems, and offers services related to its products. We produce the Model 3, Model Y, Model S, Model X, Cybertruck, and Tesla Semi.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 39
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "TSLA_2023_10-K_chunk_2",
+    "ticker": "TSLA",
+    "doc_type": "10-K",
+    "fiscal_year": 2023,
+    "fiscal_period": "FY",
+    "section": "Item 1A. Risk Factors",
+    "content": "Risks related to our operations include vehicle manufacturing ramps, battery cell supply constraints, international geopolitical tensions, regulatory policy shifts concerning zero-emission vehicle credits, and intense price competition in the electric vehicle sector across North America, Europe, and China.\n\nITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS (MD&A)\nTotal revenues were $96,773 million in 2023, an increase of 19% compared to $81,462 million in 2022. Growth was driven primarily by higher vehicle deliveries of 1.81 million units.\nHowever, automotive gross margin contracted significantly due to reductions in average selling prices (ASPs) across all vehicle models, negative foreign exchange impacts, and higher manufacturing costs during factory upgrades. Operating margin decreased to 9.2% from 16.8% in the prior year.\nOperating cash flow reached $13,256 million, and capital expenditures were $8,898 million, resulting in free cash flow of $4,358 million. Management highlights our strong liquidity position with $29.1 billion in total cash and investments.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 148
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "TSLA_2023_10-K_chunk_3",
+    "ticker": "TSLA",
+    "doc_type": "10-K",
+    "fiscal_year": 2023,
+    "fiscal_period": "FY",
+    "section": "Item 1A. Risk Factors",
+    "content": "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA\n| Metric / Line Item | Reported Amount ($M) |\n| :--- | :--- |\n| Revenue | $96,773.0M |\n| Cost Of Goods Sold | $79,113.0M |\n| Gross Profit | $17,660.0M |\n| Operating Income | $8,891.0M |\n| Net Income | $14,997.0M |\n| Total Current Assets | $49,616.0M |\n| Total Assets | $106,618.0M |\n| Total Current Liabilities | $28,748.0M |\n| Long Term Debt | $2,857.0M |\n| Total Liabilities | $43,009.0M |\n| Total Shareholders Equity | $62,634.0M |\n| Operating Cash Flow | $13,256.0M |\n| Capital Expenditures | $8,898.0M |\n| Free Cash Flow | $4,358.0M |",
+    "is_tabular": true,
+    "metadata": {
+      "word_count": 113
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "TSLA_2023_10-K_chunk_4",
+    "ticker": "TSLA",
+    "doc_type": "10-K",
+    "fiscal_year": 2023,
+    "fiscal_period": "FY",
+    "section": "Item 7. Management's Discussion and Analysis (MD&A)",
+    "content": "AND ANALYSIS (MD&A)\nTotal revenues were $96,773 million in 2023, an increase of 19% compared to $81,462 million in 2022. Growth was driven primarily by higher vehicle deliveries of 1.81 million units.\nHowever, automotive gross margin contracted significantly due to reductions in average selling prices (ASPs) across all vehicle models, negative foreign exchange impacts, and higher manufacturing costs during factory upgrades. Operating margin decreased to 9.2% from 16.8% in the prior year.\nOperating cash flow reached $13,256 million, and capital expenditures were $8,898 million, resulting in free cash flow of $4,358 million. Management highlights our strong liquidity position with $29.1 billion in total cash and investments.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 106
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "TSLA_2023_10-K_chunk_5",
+    "ticker": "TSLA",
+    "doc_type": "10-K",
+    "fiscal_year": 2023,
+    "fiscal_period": "FY",
+    "section": "Item 8. Financial Statements and Supplementary Data",
+    "content": "AND SUPPLEMENTARY DATA\n| Metric / Line Item | Reported Amount ($M) |\n| :--- | :--- |\n| Revenue | $96,773.0M |\n| Cost Of Goods Sold | $79,113.0M |\n| Gross Profit | $17,660.0M |\n| Operating Income | $8,891.0M |\n| Net Income | $14,997.0M |\n| Total Current Assets | $49,616.0M |\n| Total Assets | $106,618.0M |\n| Total Current Liabilities | $28,748.0M |\n| Long Term Debt | $2,857.0M |\n| Total Liabilities | $43,009.0M |\n| Total Shareholders Equity | $62,634.0M |\n| Operating Cash Flow | $13,256.0M |\n| Capital Expenditures | $8,898.0M |\n| Free Cash Flow | $4,358.0M |",
+    "is_tabular": true,
+    "metadata": {
+      "word_count": 109
+    },
+    "relevance_score": null
+  }
+]

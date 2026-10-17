@@ -1,0 +1,58 @@
+[
+  {
+    "chunk_id": "GOOGL_2024_10-K_chunk_1",
+    "ticker": "GOOGL",
+    "doc_type": "10-K",
+    "fiscal_year": 2024,
+    "fiscal_period": "FY",
+    "section": "Item 1. Business",
+    "content": "The enterprise delivers diversified products and software solutions across commercial and institutional markets.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 13
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "GOOGL_2024_10-K_chunk_2",
+    "ticker": "GOOGL",
+    "doc_type": "10-K",
+    "fiscal_year": 2024,
+    "fiscal_period": "FY",
+    "section": "Item 1A. Risk Factors",
+    "content": "Operational execution, competitive pressures, macroeconomic interest rate environments, and credit counterparty risks.\n\nITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS\nManagement asserts strong liquidity position, robust top-line growth, and resilient margin profile despite market headwinds.\n\nITEM 8. FINANCIAL STATEMENTS\nConsolidated Financial Statements for GOOGL.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 42
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "GOOGL_2024_10-K_chunk_3",
+    "ticker": "GOOGL",
+    "doc_type": "10-K",
+    "fiscal_year": 2024,
+    "fiscal_period": "FY",
+    "section": "Item 7. Management's Discussion and Analysis (MD&A)",
+    "content": "AND ANALYSIS\nManagement asserts strong liquidity position, robust top-line growth, and resilient margin profile despite market headwinds.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 17
+    },
+    "relevance_score": null
+  },
+  {
+    "chunk_id": "GOOGL_2024_10-K_chunk_4",
+    "ticker": "GOOGL",
+    "doc_type": "10-K",
+    "fiscal_year": 2024,
+    "fiscal_period": "FY",
+    "section": "Item 8. Financial Statements and Supplementary Data",
+    "content": "Consolidated Financial Statements for GOOGL.",
+    "is_tabular": false,
+    "metadata": {
+      "word_count": 5
+    },
+    "relevance_score": null
+  }
+]
