@@ -1,0 +1,14 @@
+[
+  "tests/test_agents.py::test_executive_synthesizer_consensus",
+  "tests/test_agents.py::test_individual_agents",
+  "tests/test_lakehouse.py::test_active_regime_lookup",
+  "tests/test_lakehouse.py::test_duckdb_views_and_query",
+  "tests/test_lakehouse.py::test_lakehouse_files_exist",
+  "tests/test_lakehouse.py::test_point_in_time_enforcement",
+  "tests/test_portfolio.py::test_backtester_execution",
+  "tests/test_portfolio.py::test_financial_metrics_evaluator",
+  "tests/test_portfolio.py::test_portfolio_optimizer",
+  "tests/test_rag.py::test_hybrid_retriever_search",
+  "tests/test_rag.py::test_rag_evaluation_metrics",
+  "tests/test_rag.py::test_temporal_guardrail"
+]
