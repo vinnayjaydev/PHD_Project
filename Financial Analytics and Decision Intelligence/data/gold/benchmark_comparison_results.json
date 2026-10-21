@@ -1,0 +1,90 @@
+{
+  "comparison_table": {
+    "Adaptive_Agentic": {
+      "CAGR (%)": 12.84,
+      "Ann. Vol (%)": 10.43,
+      "Sharpe": 0.78,
+      "Sortino": 1.32,
+      "Calmar": 0.96,
+      "Max DD (%)": -13.37,
+      "VaR 95% (%)": 1.07,
+      "CVaR 95% (%)": 1.29,
+      "Beta": -0.02,
+      "Alpha (%)": 8.44,
+      "Info Ratio": 0.19
+    },
+    "HRP": {
+      "CAGR (%)": 11.9,
+      "Ann. Vol (%)": 10.02,
+      "Sharpe": 0.73,
+      "Sortino": 1.2,
+      "Calmar": 0.95,
+      "Max DD (%)": -12.55,
+      "VaR 95% (%)": 1.04,
+      "CVaR 95% (%)": 1.25,
+      "Beta": -0.02,
+      "Alpha (%)": 7.5,
+      "Info Ratio": 0.15
+    },
+    "Risk_Parity": {
+      "CAGR (%)": 14.82,
+      "Ann. Vol (%)": 10.36,
+      "Sharpe": 0.95,
+      "Sortino": 1.61,
+      "Calmar": 1.13,
+      "Max DD (%)": -13.12,
+      "VaR 95% (%)": 1.09,
+      "CVaR 95% (%)": 1.29,
+      "Beta": -0.02,
+      "Alpha (%)": 10.42,
+      "Info Ratio": 0.28
+    },
+    "Equal_Weight": {
+      "CAGR (%)": 18.05,
+      "Ann. Vol (%)": 12.17,
+      "Sharpe": 1.06,
+      "Sortino": 1.84,
+      "Calmar": 1.25,
+      "Max DD (%)": -14.49,
+      "VaR 95% (%)": 1.22,
+      "CVaR 95% (%)": 1.49,
+      "Beta": -0.03,
+      "Alpha (%)": 13.68,
+      "Info Ratio": 0.4
+    },
+    "SPY_Buy_and_Hold": {
+      "CAGR (%)": 8.6,
+      "Ann. Vol (%)": 19.42,
+      "Sharpe": 0.29,
+      "Sortino": 0.44,
+      "Calmar": 0.33,
+      "Max DD (%)": -26.36,
+      "VaR 95% (%)": 1.82,
+      "CVaR 95% (%)": 2.73,
+      "Beta": 1.0,
+      "Alpha (%)": -0.0,
+      "Info Ratio": 0.0
+    },
+    "Balanced_60_40": {
+      "CAGR (%)": 0.93,
+      "Ann. Vol (%)": 14.8,
+      "Sharpe": -0.17,
+      "Sortino": -0.27,
+      "Calmar": 0.04,
+      "Max DD (%)": -23.28,
+      "VaR 95% (%)": 1.53,
+      "CVaR 95% (%)": 2.0,
+      "Beta": 0.68,
+      "Alpha (%)": -6.37,
+      "Info Ratio": -0.85
+    }
+  },
+  "latex_table": "\\begin{table}\n\\caption{Comparative Performance Across Strategies and Benchmarks (2021-2024)}\n\\label{tab:phd_performance_comparison}\n\\begin{tabular}{lrrrrrrrrrrr}\n\\toprule\n & CAGR (%) & Ann. Vol (%) & Sharpe & Sortino & Calmar & Max DD (%) & VaR 95% (%) & CVaR 95% (%) & Beta & Alpha (%) & Info Ratio \\\\\n\\midrule\nAdaptive_Agentic & 12.84 & 10.43 & 0.78 & 1.32 & 0.96 & -13.37 & 1.07 & 1.29 & -0.02 & 8.44 & 0.19 \\\\\nHRP & 11.90 & 10.02 & 0.73 & 1.20 & 0.95 & -12.55 & 1.04 & 1.25 & -0.02 & 7.50 & 0.15 \\\\\nRisk_Parity & 14.82 & 10.36 & 0.95 & 1.61 & 1.13 & -13.12 & 1.09 & 1.29 & -0.02 & 10.42 & 0.28 \\\\\nEqual_Weight & 18.05 & 12.17 & 1.06 & 1.84 & 1.25 & -14.49 & 1.22 & 1.49 & -0.03 & 13.68 & 0.40 \\\\\nSPY_Buy_and_Hold & 8.60 & 19.42 & 0.29 & 0.44 & 0.33 & -26.36 & 1.82 & 2.73 & 1.00 & -0.00 & 0.00 \\\\\nBalanced_60_40 & 0.93 & 14.80 & -0.17 & -0.27 & 0.04 & -23.28 & 1.53 & 2.00 & 0.68 & -6.37 & -0.85 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}\n",
+  "agentic_metrics": {
+    "avg_trajectory_steps": 4.0,
+    "avg_consensus_entropy": 0.42,
+    "tool_calling_accuracy_pct": 100.0,
+    "regime_adaptation_latency_days": 1.2,
+    "hallucination_suppression_pct": 98.4
+  }
+}

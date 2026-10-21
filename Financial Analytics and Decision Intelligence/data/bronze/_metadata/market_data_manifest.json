@@ -1,0 +1,36 @@
+{
+  "ingestion_job": "Bronze_Market_Data_Ingest",
+  "timestamp": "2026-10-21T08:30:49.455406",
+  "tickers": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "GOOGL",
+    "AMZN",
+    "JPM",
+    "JNJ",
+    "SPY",
+    "QQQ",
+    "^TNX",
+    "^VIX",
+    "GLD",
+    "TLT"
+  ],
+  "record_counts": {
+    "AAPL": 1044,
+    "MSFT": 1044,
+    "NVDA": 1044,
+    "GOOGL": 1044,
+    "AMZN": 1044,
+    "JPM": 1044,
+    "JNJ": 1044,
+    "SPY": 1044,
+    "QQQ": 1044,
+    "^TNX": 1044,
+    "^VIX": 1044,
+    "GLD": 1044,
+    "TLT": 1044
+  },
+  "layer": "bronze",
+  "status": "COMPLETED"
+}

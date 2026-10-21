@@ -1,0 +1,120 @@
+# ==============================================================================
+# Lakehouse-Enabled Agentic Intelligence System - Master Configuration
+# PhD Research Grade Specification
+# ==============================================================================
+
+project:
+  name: "FLAME-AI"
+  full_title: "A Lakehouse-Enabled Agentic Intelligence System for Adaptive Financial Analytics and Decision Intelligence Using Retrieval-Augmented Large Language Models"
+  version: "1.0.0-phd"
+  author: "PhD Financial Decision Intelligence Lab"
+  base_currency: "USD"
+
+storage:
+  bronze_path: "data/bronze"
+  silver_path: "data/silver"
+  gold_path: "data/gold"
+  format: "parquet"
+  use_delta_lake: true
+  duckdb_db_path: "data/gold/financial_lakehouse.duckdb"
+
+universe:
+  tickers:
+    - "AAPL"
+    - "MSFT"
+    - "NVDA"
+    - "GOOGL"
+    - "AMZN"
+    - "JPM"
+    - "JNJ"
+  benchmarks:
+    - "SPY"
+    - "QQQ"
+  macro_tickers:
+    - "^TNX"     # 10-Yr Treasury Yield
+    - "^VIX"     # CBOE Volatility Index
+    - "GLD"      # Gold Trust
+    - "TLT"      # 20+ Year Treasury Bond ETF
+  start_date: "2021-01-01"
+  end_date: "2025-01-01"
+
+features:
+  technical:
+    momentum_windows: [5, 14, 21, 63]
+    volatility_windows: [10, 21, 63]
+    rsi_period: 14
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    bollinger_window: 20
+    bollinger_std: 2.0
+    atr_window: 14
+  regimes:
+    num_regimes: 4
+    labels:
+      0: "Bull_Expansionary"
+      1: "Bear_Contractionary"
+      2: "High_Volatility_Crisis"
+      3: "Sideways_RangeBound"
+    transition_penalty: 0.15
+
+rag:
+  chunk_size: 450
+  chunk_overlap: 75
+  dense_embedding_dim: 384
+  sparse_bm25_k1: 1.5
+  sparse_bm25_b: 0.75
+  hybrid_alpha: 0.55  # Weight for dense (1-alpha for BM25)
+  top_k_retrieval: 5
+  rerank_top_n: 3
+  temporal_lookback_days: 90
+  enforce_point_in_time: true
+  faithfulness_threshold: 0.82
+
+agents:
+  consensus_method: "Bayesian_Consensus"  # Options: Bayesian_Consensus, Weighted_Majority, Executive_Dictator
+  max_debate_rounds: 3
+  temperature: 0.2
+  active_agents:
+    - name: "MacroRegimeAgent"
+      role: "Systemic Macroeconomic & Regime Analysis"
+      weight: 0.25
+    - name: "FundamentalValuationAgent"
+      role: "SEC 10-K/10-Q & Quantitative Valuation"
+      weight: 0.25
+    - name: "QualitativeRAGAgent"
+      role: "Unstructured Financial Filings & Earnings Call RAG"
+      weight: 0.25
+    - name: "QuantRiskAgent"
+      role: "Technical Volatility, Drawdown & Tail Risk Modeling"
+      weight: 0.25
+
+portfolio:
+  optimization_models:
+    - "Hierarchical_Risk_Parity"
+    - "Adaptive_Risk_Parity"
+    - "Black_Litterman_Agent_Views"
+    - "Minimum_Variance"
+  rebalance_frequency: "monthly"
+  transaction_cost_bps: 10.0   # 10 bps per trade
+  slippage_bps: 5.0            # 5 bps slippage
+  max_asset_weight: 0.35
+  min_asset_weight: 0.02
+  cash_buffer_target: 0.05
+  risk_free_rate_annual: 0.045 # 4.5% risk free rate
+
+evaluation:
+  benchmark_ticker: "SPY"
+  confidence_level_var: 0.95
+  confidence_level_cvar: 0.95
+  monte_carlo_simulations: 1000
+  stress_scenarios:
+    - name: "2008_Global_Financial_Crisis"
+      shock_equity: -0.45
+      shock_vol: +1.80
+    - name: "2020_Pandemic_Liquidity_Shock"
+      shock_equity: -0.32
+      shock_vol: +2.20
+    - name: "2022_Aggressive_Rate_Hike"
+      shock_equity: -0.22
+      shock_vol: +0.65

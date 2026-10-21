@@ -1,0 +1,21 @@
+{
+  "transform_job": "Silver_Filing_Chunks",
+  "total_chunks": 24,
+  "tickers": [
+    "NVDA",
+    "MSFT",
+    "AAPL",
+    "GOOGL",
+    "JPM",
+    "^TNX"
+  ],
+  "sections_extracted": [
+    "Item 1 - Business",
+    "Item 1A - Risk Factors",
+    "Item 7 - MD&A",
+    "Item 8 - Financial Statements",
+    "Monetary Policy Decision",
+    "Quantitative Tightening Outlook"
+  ],
+  "layer": "silver"
+}

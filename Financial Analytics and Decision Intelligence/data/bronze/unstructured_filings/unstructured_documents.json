@@ -1,0 +1,88 @@
+[
+  {
+    "doc_id": "NVDA_10K_FY2024",
+    "ticker": "NVDA",
+    "doc_type": "10-K",
+    "filing_date": "2024-02-21",
+    "fiscal_period": "FY2024",
+    "company_name": "NVIDIA Corporation",
+    "cik": "0001045810",
+    "sections": {
+      "Item 1 - Business": "NVIDIA pioneered accelerated computing to tackle challenges that ordinary computers cannot solve. Our Compute & Networking segment includes Data Center accelerated computing platforms, sovereign AI solutions, and networking architectures such as Quantum InfiniBand and Spectrum-X Ethernet. Revenue for Fiscal 2024 was $60.9 billion, up 126% from a year ago. Data Center revenue grew 217% to a record $47.5 billion, propelled by the transition from general-purpose computing to accelerated computing and generative AI model training across enterprise and hyperscaler cloud deployments.",
+      "Item 1A - Risk Factors": "Our business is subject to intense geopolitical risks and semiconductor export controls. Recent United States Department of Commerce interim final rules governing advanced computing semiconductor export restrictions to China and other select geographic regions have impacted our product roadmap. During the fourth quarter of fiscal 2024, our sales to China fell significantly as a percentage of Data Center revenue. Furthermore, we rely heavily on single-source wafer fabrication suppliers, specifically Taiwan Semiconductor Manufacturing Company (TSMC), and packaging partners for Chip-on-Wafer-on-Substrate (CoWoS) advanced packaging capacity. Any disruption in Taiwan or capacity constraints would materially degrade our ability to ship Blackwell and Hopper architectures.",
+      "Item 7 - MD&A": "Gross margin expanded to 72.7% in fiscal 2024 compared to 56.9% in fiscal 2023, reflecting higher Data Center sales volume and pricing leverage. Operating income grew 681% to $32.97 billion. Operating expenses increased 13% to $11.33 billion due to research and development investments in next-generation Blackwell B200 GPU platforms, CUDA-X software ecosystem, and engineering talent compensation. Free cash flow surged to $27.02 billion compared to $3.81 billion in fiscal 2023. Cash, cash equivalents, and marketable securities totaled $25.98 billion at year-end.",
+      "Item 8 - Financial Statements": "CONSOLIDATED STATEMENTS OF INCOME (in $ millions):\nMetric | FY2024 | FY2023 | FY2022\nTotal Revenue | $60,922 | $26,974 | $26,914\nCost of Revenue | $16,621 | $11,618 | $9,439\nGross Profit | $44,301 | $15,356 | $17,475\nR&D Expense | $8,675 | $7,339 | $5,268\nOperating Income | $32,971 | $4,224 | $10,041\nNet Income | $29,760 | $4,368 | $9,752\nDiluted EPS | $11.93 | $1.74 | $3.85"
+    }
+  },
+  {
+    "doc_id": "MSFT_10K_FY2024",
+    "ticker": "MSFT",
+    "doc_type": "10-K",
+    "filing_date": "2024-07-30",
+    "fiscal_period": "FY2024",
+    "company_name": "Microsoft Corporation",
+    "cik": "0000789019",
+    "sections": {
+      "Item 1 - Business": "Microsoft enables digital transformation for the era of an intelligent cloud and intelligent edge. Our three operating segments are Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. Our Microsoft Cloud revenue reached $137.4 billion, growing 23% year-over-year. Intelligent Cloud revenue was $105.4 billion, driven by Azure infrastructure growth of 30%, which incorporated 7 points of growth from AI services utilizing Azure OpenAI Service.",
+      "Item 1A - Risk Factors": "We face intense competition across all market sectors including AI infrastructure and foundation models. Our strategic partnerships, including our multi-billion dollar agreement and capital investments with OpenAI, expose us to operational, legal, and regulatory scrutiny. If OpenAI's model performance deteriorates or if competitors develop superior models at a lower inference cost, our Copilot commercial traction could suffer. Furthermore, massive capital expenditures for AI data centers ($55.7 billion in cash CapEx for FY2024) create asset utilization risks if enterprise monetization takes longer than anticipated.",
+      "Item 7 - MD&A": "Revenue was $245.1 billion, increasing 16% as customer demand for our hybrid cloud and AI copilot ecosystem expanded. Operating income grew 24% to $109.4 billion. Microsoft Cloud gross margin percentage was 71%, down slightly due to scaling AI infrastructure. Capital expenditures including assets acquired under finance leases were $55.7 billion to support cloud demand and accelerate AI platform capacity. Free cash flow was $74.1 billion, up 18% year-over-year.",
+      "Item 8 - Financial Statements": "CONSOLIDATED STATEMENTS OF INCOME (in $ millions):\nMetric | FY2024 | FY2023 | FY2022\nTotal Revenue | $245,123 | $211,915 | $198,270\nGross Margin | $169,598 | $146,052 | $135,620\nOperating Income | $109,433 | $88,523 | $83,383\nNet Income | $88,136 | $72,361 | $72,738\nDiluted EPS | $11.80 | $9.68 | $9.65\nOperating Cash Flow | $118,548 | $87,582 | $89,035"
+    }
+  },
+  {
+    "doc_id": "AAPL_10K_FY2024",
+    "ticker": "AAPL",
+    "doc_type": "10-K",
+    "filing_date": "2024-10-31",
+    "fiscal_period": "FY2024",
+    "company_name": "Apple Inc.",
+    "cik": "0000320193",
+    "sections": {
+      "Item 1 - Business": "Apple designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories, and sells a variety of related services. Total net sales were $391.0 billion in fiscal 2024, up 2% year-over-year. Services revenue set an all-time record of $96.2 billion, up 13%, driven by over 1 billion paid subscriptions across App Store, Apple Music, iCloud, and Apple Pay. In 2024, Apple introduced Apple Intelligence, a personal intelligence system integrated into iOS 18.",
+      "Item 1A - Risk Factors": "The company is exposed to global macroeconomic weakness, currency volatility, and supply chain concentration in East Asia. Antitrust regulatory actions in the European Union (Digital Markets Act) and Department of Justice lawsuits challenging App Store terms and default search agreements (Google revenue sharing) could adversely affect Services gross margins. Greater China revenue faced headwinds from competitive local handset manufacturers and government agency procurement limitations.",
+      "Item 7 - MD&A": "Products gross margin was 37.1% and Services gross margin was 74.0%, yielding a blended gross margin of 46.2%, an expansion of 210 bps. Operating income was $123.2 billion. The company returned over $95 billion to shareholders through share repurchases and dividends. Cash flow from operations reached $118.3 billion. Apple maintains a net cash neutral goal over time with $156.7 billion in total cash and marketable securities.",
+      "Item 8 - Financial Statements": "CONSOLIDATED STATEMENTS OF OPERATIONS (in $ millions):\nMetric | FY2024 | FY2023 | FY2022\niPhone Sales | $201,183 | $200,583 | $205,489\nServices Revenue | $96,169 | $85,200 | $78,129\nTotal Net Sales | $391,035 | $383,285 | $394,328\nOperating Income | $123,216 | $114,301 | $119,437\nNet Income | $93,736 | $96,995 | $99,803\nDiluted EPS | $6.08 | $6.13 | $6.11"
+    }
+  },
+  {
+    "doc_id": "GOOGL_10K_FY2024",
+    "ticker": "GOOGL",
+    "doc_type": "10-K",
+    "filing_date": "2024-02-05",
+    "fiscal_period": "FY2024",
+    "company_name": "Alphabet Inc.",
+    "cik": "0001652044",
+    "sections": {
+      "Item 1 - Business": "Alphabet is a collection of businesses, the largest of which is Google. Google Services delivers advertising across Search, YouTube ads, and Google Network, alongside Google Subscriptions, platforms, and devices. Google Cloud provides enterprise infrastructure, data analytics, and Gemini AI platform solutions. Total revenues grew 14% to $350.0 billion, with Google Cloud reaching $42.5 billion, generating $4.1 billion in operating profitability.",
+      "Item 1A - Risk Factors": "The advent of generative AI answer engines creates potential cannibalization of traditional sponsored link search ad economics. The company is defending multiple high-profile antitrust remedies involving ad tech monopolies and search distribution exclusivity agreements. Capital expenditures for custom TPU silicon (v5p and Trillium) and subsea fiber network connectivity require substantial annual capital commitment.",
+      "Item 7 - MD&A": "Operating margin expanded to 32% driven by organizational efficiency and headcount moderation. Cash and marketable securities were $110.9 billion. Operating cash flow reached $108.5 billion. Free cash flow was $72.8 billion after capital expenditures of $35.7 billion."
+    }
+  },
+  {
+    "doc_id": "JPM_10K_FY2024",
+    "ticker": "JPM",
+    "doc_type": "10-K",
+    "filing_date": "2024-02-16",
+    "fiscal_period": "FY2024",
+    "company_name": "JPMorgan Chase & Co.",
+    "cik": "0000019617",
+    "sections": {
+      "Item 1 - Business": "JPMorgan Chase & Co. is a leading global financial services firm with assets of $4.1 trillion. The firm operates across Consumer & Community Banking (CCB), Corporate & Investment Bank (CIB), Commercial Banking (CB), and Asset & Wealth Management (AWM). Net revenue was a record $162.4 billion, reflecting sustained net interest income benefits and integration of First Republic Bank.",
+      "Item 1A - Risk Factors": "Interest rate cycle inflection: Net interest margin compression could occur if the Federal Reserve eases monetary policy rapidly. Commercial Real Estate (CRE) office loan distress and credit card delinquency normalization in subprime cohorts require elevated loan loss provisions. Basel III Endgame regulatory capital surcharge rules could restrict return on equity.",
+      "Item 7 - MD&A": "Net income was $49.6 billion, generating an industry-leading Return on Tangible Common Equity (ROTCE) of 21%. Common Equity Tier 1 (CET1) capital ratio stood at 15.0%, providing substantial fortress balance sheet safety cushions."
+    }
+  },
+  {
+    "doc_id": "FOMC_STATEMENT_2024_09",
+    "ticker": "^TNX",
+    "doc_type": "FOMC_Statement",
+    "filing_date": "2024-09-18",
+    "fiscal_period": "Q3_2024",
+    "company_name": "Federal Open Market Committee",
+    "cik": "FEDERAL_RESERVE",
+    "sections": {
+      "Monetary Policy Decision": "The Committee decided to lower the target range for the federal funds rate by 50 basis points to 4-3/4 to 5 percent. Recent indicators suggest that economic activity has continued to expand at a solid pace. Job gains have slowed, and the unemployment rate has edged up but remains low. Inflation has made further progress toward the Committee's 2 percent objective but remains somewhat elevated. In light of the progress on inflation and the balance of risks, the Committee judged that the risks to achieving its employment and inflation goals are roughly in balance.",
+      "Quantitative Tightening Outlook": "The Committee will continue reducing its holdings of Treasury securities and agency debt and agency mortgage-backed securities as previously announced. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective."
+    }
+  }
+]

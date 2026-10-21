@@ -1,0 +1,15 @@
+{
+  "ingestion_job": "Bronze_Unstructured_Filings_Ingest",
+  "timestamp": "2026-10-21T08:30:49.490242",
+  "document_count": 6,
+  "tickers_covered": [
+    "^TNX",
+    "NVDA",
+    "GOOGL",
+    "MSFT",
+    "AAPL",
+    "JPM"
+  ],
+  "output_path": "data/bronze\\unstructured_filings\\unstructured_documents.json",
+  "layer": "bronze"
+}

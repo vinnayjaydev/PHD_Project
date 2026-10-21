@@ -1,0 +1,189 @@
+/* ==============================================================================
+   FLAME-AI: Institutional Glassmorphic Dark UI Theme
+   Designed for Executive Financial Analytics & PhD Dissertation Presentation
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(59, 130, 246, 0.3);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-purple: #8b5cf6;
+}
+
+/* Global Container */
+.stApp {
+  background-color: var(--bg-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+}
+
+/* Header Gradient Bar */
+.main-header {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0.8) 50%, rgba(88, 28, 135, 0.4) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.main-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.sub-title {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* Glass Cards */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 20px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  margin-bottom: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-2px);
+}
+
+/* Metric KPI Tile */
+.metric-tile {
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: left;
+}
+
+.metric-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.metric-delta {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.delta-pos {
+  color: var(--accent-emerald);
+}
+
+.delta-neg {
+  color: var(--accent-rose);
+}
+
+/* Regime Badges */
+.regime-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.regime-bull {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.regime-bear {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+.regime-crisis {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  animation: pulse 2s infinite;
+}
+
+.regime-sideways {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+/* Agent Trajectory Flow Cards */
+.trajectory-step {
+  border-left: 3px solid var(--accent-blue);
+  background: rgba(15, 23, 42, 0.5);
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+}
+
+.step-thought {
+  border-left-color: #8b5cf6;
+}
+
+.step-tool {
+  border-left-color: #06b6d4;
+}
+
+.step-obs {
+  border-left-color: #f59e0b;
+}
+
+.step-decision {
+  border-left-color: #10b981;
+}
+
+/* Monospace Code blocks */
+code, pre {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px;
+}
